@@ -71,7 +71,8 @@ if(isset($_POST['truncateTitleTable'])){
               <td> <?php echo htmlentities($row['titleUpdateDate']);?></td>
               <td>
               <a href="editTitle.php?titleToken=<?php echo $row['token']?>" ><i class="fa fa-plus"></i></a>
-              <a href="title.php?titleToken=<?php echo $row['token']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="fa fa-times"></i></a></td>
+              <a href="title.php?titleToken=<?php echo $row['token']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="fa fa-times"></i></a>
+              </td>
             </tr>
             <?php $cnt=$cnt+1; } ?>
           </tbody>
