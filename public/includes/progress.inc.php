@@ -1,10 +1,10 @@
 <style>
 .progress{
    position: fixed;
-   top: 0;
+   bottom: 0;
    left: 0;
    height: 5px;
-   background-color: ivory;
+   background-color: red;
    transition: all linear 0.5s;
    min-width: 1%;
  }

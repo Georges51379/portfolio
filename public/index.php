@@ -1,63 +1,14 @@
-<?php
-session_start();
-include('db/connection.php');
-
-$titlesql = mysqli_query($con, "SELECT titleName FROM title WHERE titleStatus = 'Active' ");
-$rw = mysqli_fetch_array($titlesql);
-
- ?>
+<?php require_once '../private/dataProcessing.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="logo.png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css" >
-  <title><?php echo htmlentities($rw['titleName']); ?></title>
+  <?php include 'includes/head.inc.php'; ?>
 </head>
 <body>
 
-  <div class="header">
-    <section class="banner">
-      <div class="banner--content">
-        <h3 class="name">georges boutros</h3>
-        <h1 class="designation">full stack developer</h1>
-        <p class="tagline">Writing code that a computer can understand? No!! Writing a code that a human can understand? Sure.</p>
-      </div>
-    </section>
-  </div><!-- .banner -->
-  <div class="navbar-wrapper" id="navbar-wrapper">
-        <div class="navbar-container">
-            <div class="logo">
-                <a href="index.php">gib</a>
-            </div>
-            <nav class="navbar">
-                <div class="navbar-mobile">
-                    <a href="#" id="navbar-toggle">
-                        <span class="bars"></span>
-                    </a>
-                </div>
-                <ul class="navbar-list">
-                    <li class="navbar-li"><a href="#about" class="navbar-links">about</a></li>
-                    <li class="navbar-li"><a href="#skill" class="navbar-links">skills</a></li>
-                    <li class="navbar-li"><a href="#service" class="navbar-links">services</a></li>
-                    <li class="navbar-li"><a href="#portfolio" class="navbar-links">portfolio</a></li>
-                    <li class="navbar-li"><a href="#feedbacks" class="navbar-links">feedbacks</a></li>
-                    <li class="navbar-li"><a href="#pricing" class="navbar-links">pricing</a></li>
-                    <li class="navbar-li"><a href="#contact" class="navbar-links">contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div><!--END NAVBAR-->
-  <section class="promo">
-    <div class="content">
-      <h2>If today you're the same as yesterday, do some progress.</h2>
-      <p>Gathering complicated ideas and visions into a well structered piece of code.</p>
-    </div>
-  </section>
-  <section id="about">
+<?php include 'includes/navbar.inc.php'; ?>
+
+  <section class="section" id="about reveal">
     <div class="content">
       <div class="about-container">
         <div class="about-container-left">
@@ -81,7 +32,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div>
     </div>
   </section><!-- #about -->
-  <section id="skill">
+  <section class="section" id="skill reveal">
     <div class="content skill--content">
       <div class="left">
         <h2>My skills &amp; expertise</h2>
@@ -116,7 +67,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div>
     </div>
   </section><!-- #skill -->
-  <section id="service">
+  <section class="section" id="service reveal">
     <h2>Services I offer</h2>
     <div class="content service--content">
       <div class="item">
@@ -139,7 +90,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div><!-- .item -->
     </div>
   </section><!-- #service -->
-  <section id="portfolio">
+  <section class="section" id="portfolio reveal">
     <h2 class="center">Portfolio -My past work samples</h2>
     <h1>
       Check my GitHub repository for more information about the below projects.
@@ -173,7 +124,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div><!-- item -->
     </div>
   </section><!-- portfolio -->
-  <section id="feedbacks">
+  <section class="section" id="feedbacks reveal">
     <h2>Feedbacks -What clients are saying about me</h2>
     <div class="content testimonial--content">
       <div class="item">
@@ -210,7 +161,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div><!-- item -->
     </div><!-- .testimonial-content -->
   </section><!-- testimonial -->
-  <section id="pricing">
+  <section class="section" id="pricing reveal">
     <h2 class="center">Pricing</h2>
     <p class="center">I charge $25/hour (USD). But if you need any of the following tasks done, see the fixed price below.</p>
     <div class="pricing--content">
@@ -237,7 +188,7 @@ $rw = mysqli_fetch_array($titlesql);
       </div><!-- item -->
     </div><!-- pricing-content -->
   </section><!-- #pricing-->
-  <section id="contact">
+  <section class="section" id="contact reveal">
     <div class="content">
       <h2 class="center">Contact Me</h2>
       <p class="center contact-detail">I am available anytime you want to contact me either by phone or email.
@@ -252,29 +203,11 @@ $rw = mysqli_fetch_array($titlesql);
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="content site-footer--content">
-      <div class="footer-left">
-        <p>I am always eager to learn new technologies and frameworks as this field is always evolving. Moreover, I discover my weakpoints and work on getting better and better.
-
-Hobbies
-My break time is about gaming or doing sports. I play sports like football, basketball, volleyball, swimming, running and going to gym. On the other hand, I play games like GTA V, NBA2K, FIFA, BattleField, PUBG, Forza Horizon, Generals.</p>
-      </div>
-      <div class="footer-right">
-        <address>
-          <p>Email Me: <a href="mailto:boutros.georges513@gmail.com">boutros.georges513@gmail.com</a></p>
-          <p></p>Call me: <a href="tel:+96176126703">+96176126703</a></p>
-          <p>Lebanon<br>
-            North-Lebanon, Chekka.</p>
-        </address>
-      </div>
-    </div>
-    <div class="copyright-notice">
-      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>. All rights reserved.</p>
-    </div>
-  </footer>
-  <?php include 'includes/arrow_to_top.inc.php'; ?>
-  <?php include 'includes/progress.inc.php'; ?>
+  <?php 
+        include 'includes/footer.inc.php';
+        include 'includes/arrow_to_top.inc.php';
+        include 'includes/progress.inc.php'; 
+  ?>
   <script src="js/script.js"></script>
 </body>
 </html>
